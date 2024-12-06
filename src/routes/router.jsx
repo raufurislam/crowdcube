@@ -8,6 +8,7 @@ import ErrorPages from "../pages/ErrorPages";
 import PrivateRoute from "../provider/PrivateRoute";
 import AddCampaign from "../pages/AddCampaign";
 import AllCampaign from "../pages/AllCampaign";
+import DetailsPage from "../pages/DetailsPage";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,17 @@ const router = createBrowserRouter([
         path: "/campaigns",
         element: <AllCampaign></AllCampaign>,
       },
+      {
+        path: "/campaign/:id",
+        element: (
+          <PrivateRoute>
+            <DetailsPage />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/campaigns/${params.id}`), // Fetch specific campaign by ID
+      },
+
       {
         path: "/auth",
         element: <AuthPage></AuthPage>,
