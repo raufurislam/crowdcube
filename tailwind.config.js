@@ -13,7 +13,7 @@ export default {
           secondary: "#3182CE", // Icy azure
           accent: "#63B3ED", // Glacier blue
           neutral: "#E2E8F0", // Frosty gray
-          "base-100": "#fff1f0", // Snow white FFFFFF
+          "base-100": "#FFFFFF", // Snow white FFFFFF
         },
         dark: {
           primary: "#2A4365", // Midnight blue

@@ -1,13 +1,23 @@
+import { useLoaderData } from "react-router-dom";
+import Banner from "../components/Banner";
+import RunningCampaigns from "../components/RunningCampaigns";
+
 const HomePage = () => {
+  const campaigns = useLoaderData();
+
+  // Filter running campaigns (those with future deadlines)
+  const runningCampaigns = campaigns.filter((campaign) => {
+    const currentDate = new Date();
+    return new Date(campaign.deadline) >= currentDate;
+  });
+
   return (
     <div>
-      <h1>This is homepage Home page After change name</h1>
-      <button className="btn bg-primary">Lorem, ipsum.</button>
-      <button className="btn bg-secondary">Lorem, ipsum.</button>
-      <button className="btn bg-accent">Lorem, ipsum.</button>
-      <button className="btn bg-neutral">Lorem, ipsum.</button>
-      <button className="btn bg-base-100">Lorem, ipsum.</button>
-      <button className="btn bg-base-300">Lorem, ipsum.</button>
+      {/* Banner */}
+      <Banner />
+      {/* Running Campaigns */}
+      <RunningCampaigns campaigns={runningCampaigns.slice(0, 6)} />{" "}
+      {/* Limit to 6 */}
     </div>
   );
 };

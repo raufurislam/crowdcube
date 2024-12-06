@@ -35,20 +35,20 @@ const Navbar = () => {
         Home
       </NavLink>
       <NavLink
-        to="/campaign"
+        to="/addCampaign"
         className={({ isActive }) =>
           isActive ? "text-blue-500 font-medium" : "text-gray-500 font-medium"
         }
       >
-        Donation Campaign
+        Add Campaign
       </NavLink>
       <NavLink
-        to="/help"
+        to="/campaigns"
         className={({ isActive }) =>
           isActive ? "text-blue-500 font-medium" : "text-gray-500 font-medium"
         }
       >
-        How to Help
+        All Campaign
       </NavLink>
       <NavLink
         to="/dashboard"

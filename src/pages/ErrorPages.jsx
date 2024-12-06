@@ -1,11 +1,9 @@
 import { GiOwl } from "react-icons/gi";
-import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 
 const ErrorPages = () => {
   return (
     <>
-      <Navbar></Navbar>
       <div className="min-h-screen flex flex-col items-center justify-center space-y-2">
         <div className="text-9xl">
           <GiOwl size={200} />
