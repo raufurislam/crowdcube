@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProviders";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
+import Loading from "./Loading";
 
 const MyCampaign = () => {
   const { user } = useContext(AuthContext); // Get the logged-in user's info
@@ -20,11 +22,20 @@ const MyCampaign = () => {
   }, [user]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <Loading></Loading>;
   }
 
   if (campaigns.length === 0) {
-    return <p>No campaigns found for your account.</p>;
+    return (
+      <div className="text-center">
+        <p className="text-2xl font-semibold mb-4 mt-6">
+          No campaigns found for your account.
+        </p>
+        <Link to="/addCampaign" className="btn btn-accent">
+          Add Campaign
+        </Link>
+      </div>
+    );
   }
 
   const handleUpdate = (id) => {

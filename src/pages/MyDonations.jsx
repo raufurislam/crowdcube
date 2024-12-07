@@ -1,5 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProviders";
+import Loading from "./Loading";
+import { Link } from "react-router-dom";
 
 const MyDonations = () => {
   const { user } = useContext(AuthContext); // Get logged-in user info
@@ -22,12 +24,17 @@ const MyDonations = () => {
   }, [user?.email]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <Loading></Loading>;
   }
 
   if (!donations.length) {
     return (
-      <p className="text-center text-gray-500 mt-10">No donations found.</p>
+      <div className="text-center">
+        <p className="text-2xl font-semibold mb-4 mt-6">No donations found.</p>
+        <Link to="/campaigns" className="btn btn-accent">
+          Donate Now
+        </Link>
+      </div>
     );
   }
 
