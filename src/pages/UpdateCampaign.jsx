@@ -11,7 +11,7 @@ const UpdateCampaign = () => {
 
   // Fetch the campaign details
   useEffect(() => {
-    fetch(`http://localhost:5000/campaigns/${id}`)
+    fetch(`https://assignment-10-raufur-server.vercel.app/campaigns/${id}`)
       .then((res) => res.json())
       .then((data) => setCampaign(data))
       .catch((error) => console.error(error));
@@ -30,7 +30,7 @@ const UpdateCampaign = () => {
       deadline: form.deadline.value,
     };
 
-    fetch(`http://localhost:5000/campaigns/${id}`, {
+    fetch(`https://assignment-10-raufur-server.vercel.app/campaigns/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedCampaign),

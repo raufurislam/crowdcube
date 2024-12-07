@@ -21,7 +21,8 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <HomePage></HomePage>,
-        loader: () => fetch("http://localhost:5000/campaigns"),
+        loader: () =>
+          fetch("https://assignment-10-raufur-server.vercel.app/campaigns"),
       },
       {
         path: "/addCampaign",
@@ -43,7 +44,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/campaigns/${params.id}`), // Fetch specific campaign by ID
+          fetch(
+            `https://assignment-10-raufur-server.vercel.app/campaigns/${params.id}`
+          ), // Fetch specific campaign by ID
       },
       {
         path: "/myCampaign",

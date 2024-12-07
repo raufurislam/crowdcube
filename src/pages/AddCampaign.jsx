@@ -30,7 +30,7 @@ const AddCampaign = () => {
     console.log(newCampaign);
 
     // send data to the server and database
-    fetch("http://localhost:5000/campaigns", {
+    fetch("https://assignment-10-raufur-server.vercel.app/campaigns", {
       method: "POST",
       headers: {
         "content-type": "application/json",

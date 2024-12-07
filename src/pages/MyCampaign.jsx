@@ -11,7 +11,9 @@ const MyCampaign = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:5000/myCampaigns?email=${user.email}`)
+      fetch(
+        `https://assignment-10-raufur-server.vercel.app/myCampaigns?email=${user.email}`
+      )
         .then((res) => res.json())
         .then((data) => {
           setCampaigns(data);
@@ -54,9 +56,12 @@ const MyCampaign = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/campaigns/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://assignment-10-raufur-server.vercel.app/campaigns/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {

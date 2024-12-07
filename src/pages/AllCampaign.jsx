@@ -5,7 +5,7 @@ const AllCampaign = () => {
   const [campaigns, setCampaigns] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/campaigns")
+    fetch("https://assignment-10-raufur-server.vercel.app/campaigns")
       .then((res) => res.json())
       .then((data) => setCampaigns(data));
   }, []);
