@@ -51,12 +51,20 @@ const Navbar = () => {
         All Campaign
       </NavLink>
       <NavLink
-        to="/dashboard"
+        to="/myCampaign"
         className={({ isActive }) =>
           isActive ? "text-blue-500 font-medium" : "text-gray-500 font-medium"
         }
       >
-        Dashboard
+        My Campaign
+      </NavLink>
+      <NavLink
+        to="/myDonations"
+        className={({ isActive }) =>
+          isActive ? "text-blue-500 font-medium" : "text-gray-500 font-medium"
+        }
+      >
+        My Donations
       </NavLink>
       {user && user.email ? (
         <button onClick={logOut} className="md:hidden text-left">

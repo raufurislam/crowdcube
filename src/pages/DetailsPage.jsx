@@ -1,13 +1,29 @@
 import { useLoaderData } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../provider/AuthProviders";
+import Swal from "sweetalert2";
 
 const DetailsPage = () => {
-  const campaign = useLoaderData();
+  const campaign = useLoaderData(); // Fetch campaign details via loader
+  const { user } = useContext(AuthContext); // Get logged-in user data
 
   const handleDonate = () => {
+    if (!user) {
+      Swal.fire({
+        icon: "error",
+        title: "Login Required",
+        text: "You must log in to donate.",
+      });
+      return;
+    }
+
     const donationData = {
       campaignId: campaign._id,
-      userEmail: "user@example.com", // Replace with logged-in user email
-      username: "John Doe", // Replace with logged-in user name
+      campaignName: campaign.title,
+      donorEmail: user.email,
+      donorName: user.displayName,
+      amount: campaign.minimumDonation, // Example donation amount
+      date: new Date().toISOString(),
     };
 
     fetch("http://localhost:5000/donations", {
@@ -18,8 +34,20 @@ const DetailsPage = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          alert("Donation successful!");
+          Swal.fire({
+            icon: "success",
+            title: "Thank You!",
+            text: "Your donation has been successfully added.",
+          });
         }
+      })
+      .catch((error) => {
+        console.error("Error donating:", error);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong. Please try again later.",
+        });
       });
   };
 

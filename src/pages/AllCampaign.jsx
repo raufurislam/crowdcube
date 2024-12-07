@@ -11,9 +11,11 @@ const AllCampaign = () => {
   }, []);
 
   return (
-    <div className="max-w-6xl mx-auto py-10">
+    <div className="max-w-6xl mx-auto py-10 px-4">
       <h1 className="text-3xl text-center font-bold mb-8">All Campaigns</h1>
-      <div className="overflow-x-auto">
+
+      {/* Desktop Table */}
+      <div className="hidden md:block">
         <table className="table w-full">
           <thead>
             <tr>
@@ -45,6 +47,42 @@ const AllCampaign = () => {
             ))}
           </tbody>
         </table>
+      </div>
+
+      {/* Mobile Cards */}
+      <div className="block md:hidden space-y-4">
+        {campaigns.map((campaign, index) => (
+          <div
+            key={campaign._id}
+            className="bg-white shadow-md rounded-lg p-4 border"
+          >
+            <div className="mb-2">
+              <span className="font-bold">#</span> {index + 1}
+            </div>
+            <div className="mb-2">
+              <span className="font-bold">Title:</span> {campaign.title}
+            </div>
+            <div className="mb-2">
+              <span className="font-bold">Type:</span> {campaign.type}
+            </div>
+            <div className="mb-2">
+              <span className="font-bold">Deadline:</span>{" "}
+              {new Date(campaign.deadline).toLocaleDateString()}
+            </div>
+            <div className="mb-2">
+              <span className="font-bold">Minimum Donation:</span> $
+              {campaign.minimumDonation}
+            </div>
+            <div className="mt-2">
+              <Link
+                to={`/campaign/${campaign._id}`}
+                className="btn btn-sm btn-primary w-full"
+              >
+                See More
+              </Link>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
