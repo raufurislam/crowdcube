@@ -1,16 +1,16 @@
-# ![Crowdcube](https://i.ibb.co.com/tBm5nnr/Crowd-Cube-06.png) Crowdcube
+# <img src="https://i.ibb.co.com/tBm5nnr/Crowd-Cube-06.png" alt="Crowdcube Icon" width="12" height="12"> Crowdcube
 
-[![Website](https://img.shields.io/website?down_color=red&down_message=Offline&up_color=green&up_message=Online&url=https%3A%2F%2Fyour-live-site.com)]([Live Site URL])  
+[Website](https://img.shields.io/website?down_color=red&down_message=Offline&up_color=green&up_message=Online&url=https%3A%2F%2Fyour-live-site.com)
 [![React](https://img.shields.io/badge/React-JS-blue)](https://react.dev/)  
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-Welcome to **[Your Website Name]**, a modern crowdfunding platform that empowers individuals and organizations to bring their ideas to life. Whether you’re looking to fundraise or support meaningful causes, our platform makes it seamless and transparent.
+Welcome to **[Crowdcube]**, a modern crowdfunding platform that empowers individuals and organizations to bring their ideas to life. Whether you’re looking to fundraise or support meaningful causes, our platform makes it seamless and transparent.
 
 ---
 
 ## 🚀 **Live Demo**
 
-Check out the live site: [🌐 Visit Website](https://crowdcube-a10.web.app/)
+Check out the live site: [https://crowdcube-a10.web.app/](https://crowdcube-a10.web.app/)
 
 ---
 
