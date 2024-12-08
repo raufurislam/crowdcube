@@ -39,8 +39,8 @@ const Register = () => {
         setUser(user);
         updateUserProfile({ displayName: name, photoURL: photo })
           .then(() => {
-            toast.success("Account created successfully!");
             navigate("/");
+            toast.success("Account created successfully!");
           })
           .catch((error) => {
             console.error("Profile update error:", error);

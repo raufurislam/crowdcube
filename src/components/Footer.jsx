@@ -7,8 +7,8 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-6">
-      <div className="container mx-auto px-4">
+    <footer className="bg-gray-800  text-white py-6">
+      <div className="max-w-screen-xl lg:px-2 mx-auto px-4">
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-6">
           {/* Logo and About */}

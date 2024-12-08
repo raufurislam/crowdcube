@@ -51,10 +51,12 @@ const AllCampaign = () => {
           <thead>
             <tr>
               <th>#</th>
+              <th>Image</th>
               <th>Title</th>
               <th>Type</th>
               <th>Deadline</th>
-              <th>Minimum Donation</th>
+              <th>Min. Donation</th>
+              <th>Campaign Creator</th>
               <th className="text-right">Actions</th>
             </tr>
           </thead>
@@ -62,11 +64,20 @@ const AllCampaign = () => {
             {campaigns.map((campaign, index) => (
               <tr key={campaign._id} className="hover:bg-base-300">
                 <td>{index + 1}</td>
+                <td>
+                  <img
+                    src={campaign.image}
+                    alt=""
+                    className="h-20 w-32 object-cover"
+                  />
+                </td>
                 <td className="font-medium">{campaign.title}</td>
                 <td>{campaign.type}</td>
                 <td>{new Date(campaign.deadline).toLocaleDateString()}</td>
                 <td>${campaign.minimumDonation}</td>
-                <td className="text-right flex justify-end gap-2">
+                <td>${campaign.userName}</td>
+
+                <td className="text-right flex justify-end gap-2 mt-6">
                   <Link
                     to={`/campaign/${campaign._id}`}
                     className="btn btn-sm btn-primary"
@@ -85,10 +96,18 @@ const AllCampaign = () => {
         {campaigns.map((campaign, index) => (
           <div
             key={campaign._id}
-            className="bg-white shadow-md rounded-lg p-4 border"
+            className=" shadow-md rounded-lg p-4 bg-base-300"
           >
             <div className="mb-2">
-              <span className="font-bold">#</span> {index + 1}
+              <img
+                src={campaign.image}
+                alt=""
+                className="w-full h-44 object-cover"
+              />
+              {/* <span className="font-bold">Title:</span> */}
+            </div>
+            <div className="mt-4 mb-2 font-bold text-xl">
+              <span className="">#</span> {index + 1}
             </div>
             <div className="mb-2">
               <span className="font-bold">Title:</span> {campaign.title}
@@ -104,7 +123,7 @@ const AllCampaign = () => {
               <span className="font-bold">Minimum Donation:</span> $
               {campaign.minimumDonation}
             </div>
-            <div className="mt-2">
+            <div className="mt-2 flex items-center">
               <Link
                 to={`/campaign/${campaign._id}`}
                 className="btn btn-sm btn-primary w-full"

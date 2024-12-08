@@ -21,6 +21,7 @@ const Login = () => {
       .then((result) => {
         setUser(result.user);
         navigate(location?.state || "/");
+        toast.success("Account Login successfully!");
       })
       .catch(() => {
         toast.error("Invalid email or password.");
@@ -33,6 +34,7 @@ const Login = () => {
         setUser(result.user);
         console.log(result);
         navigate(location?.state || "/");
+        toast.success("Account Login successfully!");
       })
       .catch(() => {
         toast.error("Google Sign-In Failed.");

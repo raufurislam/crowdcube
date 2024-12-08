@@ -24,6 +24,7 @@ const UpdateCampaign = () => {
 
     const updatedCampaign = {
       title: form.title.value,
+      image: form.image.value,
       type: form.type.value,
       description: form.description.value,
       minimumDonation: parseInt(form.minimumDonation.value, 10),
@@ -50,83 +51,99 @@ const UpdateCampaign = () => {
   }
 
   return (
-    <div className="p-5">
-      <h1 className="text-3xl font-bold mb-4">Update Campaign</h1>
-      <form onSubmit={handleUpdate} className="space-y-4">
-        <div>
-          <label className="block font-bold">Title:</label>
-          <input
-            name="title"
-            type="text"
-            defaultValue={campaign.title}
-            className="w-full border p-2 rounded"
-            required
-          />
-        </div>
-        <div>
-          <label className="block font-bold">Type:</label>
-          <input
-            name="type"
-            type="text"
-            defaultValue={campaign.type}
-            className="w-full border p-2 rounded"
-            required
-          />
-        </div>
-        <div>
-          <label className="block font-bold">Description:</label>
-          <textarea
-            name="description"
-            defaultValue={campaign.description}
-            className="w-full border p-2 rounded"
-            required
-          ></textarea>
-        </div>
-        <div>
-          <label className="block font-bold">Minimum Donation:</label>
-          <input
-            name="minimumDonation"
-            type="number"
-            defaultValue={campaign.minimumDonation}
-            className="w-full border p-2 rounded"
-            required
-          />
-        </div>
-        <div>
-          <label className="block font-bold">Deadline:</label>
-          <input
-            name="deadline"
-            type="date"
-            defaultValue={campaign.deadline}
-            className="w-full border p-2 rounded"
-            required
-          />
-        </div>
-        <div>
-          <label className="block font-bold">User Name:</label>
-          <input
-            type="text"
-            value={campaign.userName}
-            className="w-full border p-2 rounded bg-gray-100"
-            readOnly
-          />
-        </div>
-        <div>
-          <label className="block font-bold">User Email:</label>
-          <input
-            type="email"
-            value={campaign.userEmail}
-            className="w-full border p-2 rounded bg-gray-100"
-            readOnly
-          />
-        </div>
-        <button
-          type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded"
-        >
+    <div className="max-w-screen-xl mx-auto lg:px-2 px-4 p-5">
+      <div className="bg-base-300 p-8 rounded-lg shadow-lg ">
+        <h1 className="text-3xl font-bold mb-7 text-center text-secondary">
           Update Campaign
-        </button>
-      </form>
+        </h1>
+        <form onSubmit={handleUpdate} className="space-y-4">
+          <div>
+            <label className="block font-bold">Title:</label>
+            <input
+              name="title"
+              type="text"
+              defaultValue={campaign.title}
+              className="input input-bordered w-full"
+              required
+            />
+          </div>
+          <div>
+            <label className="block font-bold">PhotoUrl</label>
+            <input
+              name="image"
+              type="text"
+              defaultValue={campaign.image}
+              className="input input-bordered w-full"
+              required
+            />
+          </div>
+          <div>
+            <label className="block font-bold">Type:</label>
+            <input
+              name="type"
+              type="text"
+              defaultValue={campaign.type}
+              className="input input-bordered w-full"
+              required
+            />
+          </div>
+          <div>
+            <label className="block font-bold">Description:</label>
+            <textarea
+              name="description"
+              defaultValue={campaign.description}
+              className="input input-bordered w-full"
+              required
+            ></textarea>
+          </div>
+          <div>
+            <label className="block font-bold">Minimum Donation:</label>
+            <input
+              name="minimumDonation"
+              type="number"
+              defaultValue={campaign.minimumDonation}
+              className="input input-bordered w-full"
+              required
+            />
+          </div>
+          <div>
+            <label className="block font-bold">Deadline:</label>
+            <input
+              name="deadline"
+              type="date"
+              defaultValue={campaign.deadline}
+              className="input input-bordered w-full"
+              required
+            />
+          </div>
+          <div>
+            <label className="block font-bold">User Name:</label>
+            <input
+              type="text"
+              value={campaign.userName}
+              className="input input-bordered w-full "
+              readOnly
+              disabled
+            />
+          </div>
+          <div>
+            <label className="block font-bold">User Email:</label>
+            <input
+              type="email"
+              value={campaign.userEmail}
+              className="input input-bordered w-full "
+              disabled
+              readOnly
+            />
+          </div>
+          <button
+            type="submit"
+            className="bg-blue-500 text-white px-4 py-2 rounded"
+          >
+            Update Campaign
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
