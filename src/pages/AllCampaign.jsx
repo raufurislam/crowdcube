@@ -104,7 +104,7 @@ const AllCampaign = () => {
               <img
                 src={campaign.image}
                 alt=""
-                className="w-full h-44 object-cover"
+                className="w-full h-44 object-cover rounded-lg"
               />
               {/* <span className="font-bold">Title:</span> */}
             </div>

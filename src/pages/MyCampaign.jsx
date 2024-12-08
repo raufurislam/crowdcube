@@ -99,7 +99,7 @@ const MyCampaign = () => {
           </thead>
           <tbody>
             {campaigns.map((campaign, index) => (
-              <tr key={campaign._id}>
+              <tr key={campaign._id} className="hover:bg-base-300">
                 <td>{index + 1}</td>
                 <td>
                   <img
@@ -137,13 +137,13 @@ const MyCampaign = () => {
         {campaigns.map((campaign, index) => (
           <div
             key={campaign._id}
-            className="bg-white shadow-md rounded-lg p-4 border"
+            className="bg-base-300 shadow-md rounded-lg p-4"
           >
             <div className="mb-2">
               <img
                 src={campaign.image}
                 alt=""
-                className="w-full h-44 object-cover"
+                className="w-full h-44 object-cover rounded-lg"
               />
               {/* <span className="font-bold">Title:</span> */}
             </div>
