@@ -1,6 +1,5 @@
 # <img src="https://i.ibb.co.com/tBm5nnr/Crowd-Cube-06.png" alt="Crowdcube Icon" width="30" height="30"> Crowdcube
 
-[Website](https://img.shields.io/website?down_color=red&down_message=Offline&up_color=green&up_message=Online&url=https%3A%2F%2Fyour-live-site.com)
 [![React](https://img.shields.io/badge/React-JS-blue)](https://react.dev/)  
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
