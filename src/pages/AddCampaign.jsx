@@ -55,7 +55,7 @@ const AddCampaign = () => {
   return (
     <div className="max-w-screen-xl mx-auto mt-10 lg:px-2 px-4">
       <div className=" bg-base-300 p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold mb-7 text-center text-secondary">
+        <h1 className="lg:text-4xl md:text-3xl text-2xl font-bold mb-7 text-center text-secondary">
           Add New Campaign
         </h1>
         <form className="space-y-4" onSubmit={handleAddCampaign}>
@@ -164,7 +164,8 @@ const AddCampaign = () => {
               name="userEmail"
               value={user?.email || ""}
               readOnly
-              className="input input-bordered w-full bg-gray-200"
+              className="input input-bordered w-full"
+              disabled
             />
           </div>
 
@@ -179,7 +180,8 @@ const AddCampaign = () => {
               name="userName"
               value={user?.displayName || "Anonymous"}
               readOnly
-              className="input input-bordered w-full bg-gray-200"
+              className="input input-bordered w-full"
+              disabled
             />
           </div>
 

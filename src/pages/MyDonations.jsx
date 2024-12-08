@@ -41,13 +41,15 @@ const MyDonations = () => {
   }
 
   return (
-    <div className="p-5">
-      <h1 className="text-3xl font-bold text-center mb-6">My Donations</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="max-w-screen-xl lg:px-2 px-4 mx-auto">
+      <h1 className="lg:text-4xl md:text-3xl text-2xl font-bold text-secondary text-center mb-6">
+        My Donations
+      </h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {donations.map((donation) => (
           <div
             key={donation._id}
-            className="p-4 border rounded-lg shadow-lg bg-white"
+            className="p-4 border rounded-lg shadow-md bg-white"
           >
             <h2 className="text-xl font-semibold text-gray-700">
               {donation.campaignTitle}

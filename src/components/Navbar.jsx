@@ -148,7 +148,7 @@ const Navbar = () => {
         {/* dark and light theme */}
         <button
           onClick={toggleTheme}
-          className="btn btn-ghost text-xl flex items-center justify-center"
+          className="btn mr-3 border text-xl flex items-center justify-center"
           aria-label="Toggle Theme"
         >
           {theme === "light" ? <FaMoon /> : <FaSun />}

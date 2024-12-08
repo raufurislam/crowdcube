@@ -79,7 +79,9 @@ const MyCampaign = () => {
 
   return (
     <div className="max-w-screen-xl mx-auto py-6 lg:px-2 px-4">
-      <h1 className="text-3xl text-center font-bold mb-6">My Campaigns</h1>
+      <h1 className="lg:text-4xl md:text-3xl text-2xl text-secondary text-center font-bold mb-6">
+        My Campaigns
+      </h1>
 
       {/* Desktop Table */}
       <div className="hidden md:block">
@@ -87,6 +89,7 @@ const MyCampaign = () => {
           <thead>
             <tr>
               <th>#</th>
+              <th>Image</th>
               <th>Title</th>
               <th>Type</th>
               <th>Deadline</th>
@@ -98,11 +101,18 @@ const MyCampaign = () => {
             {campaigns.map((campaign, index) => (
               <tr key={campaign._id}>
                 <td>{index + 1}</td>
+                <td>
+                  <img
+                    src={campaign.image}
+                    alt=""
+                    className="h-20 w-32 object-cover"
+                  />
+                </td>
                 <td className="font-medium">{campaign.title}</td>
                 <td>{campaign.type}</td>
                 <td>{new Date(campaign.deadline).toLocaleDateString()}</td>
                 <td>${campaign.minimumDonation}</td>
-                <td className="text-right flex justify-end gap-2">
+                <td className="text-right flex justify-end gap-2 mt-6">
                   <button
                     className="btn btn-sm btn-primary"
                     onClick={() => handleUpdate(campaign._id)}
@@ -130,7 +140,15 @@ const MyCampaign = () => {
             className="bg-white shadow-md rounded-lg p-4 border"
           >
             <div className="mb-2">
-              <span className="font-bold">#</span> {index + 1}
+              <img
+                src={campaign.image}
+                alt=""
+                className="w-full h-44 object-cover"
+              />
+              {/* <span className="font-bold">Title:</span> */}
+            </div>
+            <div className="mt-4 mb-2 font-bold text-xl">
+              <span className="">#</span> {index + 1}
             </div>
             <div className="mb-2">
               <span className="font-bold">Title:</span> {campaign.title}
