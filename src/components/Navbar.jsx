@@ -124,6 +124,14 @@ const Navbar = () => {
 
       {/* Navbar End */}
       <div className="navbar-end">
+        {/* dark and light theme */}
+        <button
+          onClick={toggleTheme}
+          className="btn btn-ghost rounded-full px-3 mr-3 border text-xl flex items-center justify-center"
+          aria-label="Toggle Theme"
+        >
+          {theme === "light" ? <FaMoon /> : <FaSun />}
+        </button>
         <div
           className="tooltip tooltip-bottom"
           data-tip={user?.displayName || ""}
@@ -144,15 +152,6 @@ const Navbar = () => {
             )}
           </div>
         </div>
-
-        {/* dark and light theme */}
-        <button
-          onClick={toggleTheme}
-          className="btn mr-3 border text-xl flex items-center justify-center"
-          aria-label="Toggle Theme"
-        >
-          {theme === "light" ? <FaMoon /> : <FaSun />}
-        </button>
 
         {/* login and logout button  */}
         {user && user.email ? (
