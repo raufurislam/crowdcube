@@ -14,7 +14,9 @@ const MainLayout = () => {
       </div>
 
       {/* Footer at the bottom */}
-      <Footer />
+      <div className="mt-20">
+        <Footer />
+      </div>
     </div>
   );
 };

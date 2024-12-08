@@ -58,6 +58,7 @@ const Banner = () => {
           }}
           pagination={{
             clickable: true,
+            el: ".custom-pagination", // Target the custom class
           }}
           modules={[Autoplay, Pagination, Navigation]}
           className="mySwiper"
@@ -65,7 +66,7 @@ const Banner = () => {
         >
           {slides.map((slide, index) => (
             <SwiperSlide key={slide.id}>
-              <div className="flex flex-col-reverse md:flex-row gap-8 p-8 items-center">
+              <div className="flex flex-col-reverse md:flex-row gap-8 items-center">
                 {/* Text Content */}
                 <div className="flex-1">
                   <h1 className="lg:text-4xl text-secondary md:text-3xl text-2xl mb-3 font-semibold">
@@ -73,7 +74,6 @@ const Banner = () => {
                       <Typewriter
                         words={[slide.title]}
                         loop={1}
-                        // cursor
                         cursorStyle="|"
                         typeSpeed={30}
                         deleteSpeed={10}
@@ -84,7 +84,7 @@ const Banner = () => {
                   <p className="lg:w-2/3 text-sm text-accent">
                     {slide.description}
                   </p>
-                  <Link className="btn  bg-primary text-neutral mt-8 w-full md:w-auto">
+                  <Link className="btn bg-primary text-neutral mt-8 w-full md:w-auto">
                     Donate Now
                   </Link>
                 </div>
@@ -100,6 +100,8 @@ const Banner = () => {
             </SwiperSlide>
           ))}
         </Swiper>
+        {/* Custom Pagination */}
+        <div className="custom-pagination flex justify-center mt-6"></div>
       </div>
     </div>
   );

@@ -14,7 +14,7 @@ const HomePage = () => {
   });
 
   return (
-    <div>
+    <div className="lg:space-y-12 space-y-4">
       {/* Banner */}
       <Banner />
       {/* Running Campaigns */}

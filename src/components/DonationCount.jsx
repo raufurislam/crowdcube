@@ -23,7 +23,7 @@ const DonationCount = () => {
 
   return (
     <div className="max-w-screen-xl mx-auto">
-      <h1 className="lg:text-3xl md:text-2xl text-xl font-medium text-center">
+      <h1 className="lg:text-4xl md:text-3xl text-2xl font-bold text-secondary text-center">
         Spread love to those <br />
         <span className="lg:text-4xl md:text-3xl text-2xl font-bold">
           who need it
@@ -39,7 +39,7 @@ const DonationCount = () => {
           />
         </div>
         {/* Text Section */}
-        <div className="md:mr-20 lg:mr-40">
+        <div className="md:mr-20 lg:mr-40 mt-5 md:mt-0">
           <div className="text-center ">
             <h2 className="lg:text-3xl text-2xl  font-bold">We Collected</h2>
             <h1 className="text-7xl font-extrabold text-primary mt-4">
