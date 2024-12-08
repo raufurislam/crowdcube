@@ -68,21 +68,23 @@ const Banner = () => {
               <div className="flex flex-col-reverse md:flex-row gap-8 p-8 items-center">
                 {/* Text Content */}
                 <div className="flex-1">
-                  <h1 className="lg:text-4xl md:text-3xl text-2xl mb-3 font-semibold">
+                  <h1 className="lg:text-4xl text-secondary md:text-3xl text-2xl mb-3 font-semibold">
                     {activeIndex === index && (
                       <Typewriter
                         words={[slide.title]}
-                        loop={false}
-                        cursor
+                        loop={1}
+                        // cursor
                         cursorStyle="|"
-                        typeSpeed={10}
+                        typeSpeed={30}
                         deleteSpeed={10}
                         delaySpeed={3000}
                       />
                     )}
                   </h1>
-                  <p className="lg:w-2/3 text-sm">{slide.description}</p>
-                  <Link className="btn btn-accent mt-8 w-full md:w-auto">
+                  <p className="lg:w-2/3 text-sm text-accent">
+                    {slide.description}
+                  </p>
+                  <Link className="btn  bg-primary text-neutral mt-8 w-full md:w-auto">
                     Donate Now
                   </Link>
                 </div>

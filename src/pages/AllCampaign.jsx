@@ -1,15 +1,24 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Loading from "./Loading";
 
 const AllCampaign = () => {
   const [campaigns, setCampaigns] = useState([]);
   const [isAscending, setIsAscending] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch("https://assignment-10-raufur-server.vercel.app/campaigns")
       .then((res) => res.json())
-      .then((data) => setCampaigns(data));
+      .then((data) => {
+        setCampaigns(data);
+        setLoading(false);
+      });
   }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   // Toggle sort order
   const handleSort = () => {
@@ -28,10 +37,10 @@ const AllCampaign = () => {
 
   return (
     <div className="max-w-6xl mx-auto py-10 px-4">
-      <h1 className="text-3xl text-center font-bold mb-8">All Campaigns</h1>
+      <h1 className="text-3xl text-center font-bold mb-5">All Campaigns</h1>
       <div className="flex text-center justify-center items-center">
         {/* <h1 className="text-lg font-semibold">Sort by:</h1> */}
-        <button onClick={handleSort} className="btn btn-accent ml-3">
+        <button onClick={handleSort} className="btn btn-primary mb-6">
           Minimum donation amount {isAscending ? "↑" : "↓"}
         </button>
       </div>
@@ -51,7 +60,7 @@ const AllCampaign = () => {
           </thead>
           <tbody>
             {campaigns.map((campaign, index) => (
-              <tr key={campaign._id}>
+              <tr key={campaign._id} className="hover:bg-base-300">
                 <td>{index + 1}</td>
                 <td className="font-medium">{campaign.title}</td>
                 <td>{campaign.type}</td>

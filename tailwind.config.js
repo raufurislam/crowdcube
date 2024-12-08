@@ -9,17 +9,19 @@ export default {
     themes: [
       {
         light: {
-          primary: "#2C5282", // Sky blue
-          secondary: "#3182CE", // Icy azure
-          accent: "#63B3ED", // Glacier blue
+          primary: "#183C6D", // Sky blue
+          secondary: "#002C5B", // Icy azure
+          accent: "#4B5563", // Glacier blue
           neutral: "#E2E8F0", // Frosty gray
+          "base-300": "#F0FDF4", // Frosty green
           "base-100": "#FFFFFF", // Snow white FFFFFF
         },
         dark: {
-          primary: "#2A4365", // Midnight blue
-          secondary: "#2B6CB0", // Deep sky
-          accent: "#4299E1", // Cool glacier
-          neutral: "#2D3748", // Mountain shadow
+          primary: "#183C6D", // Midnight blue
+          secondary: "#CCCDD1", // Deep sky
+          accent: "#9CA3AF", // Cool glacier
+          neutral: "#E2E8F0", // Mountain shadow
+          "base-300": "#1F2937", // Frosty gray
           "base-100": "#1A202C", // Night black
         },
       },
