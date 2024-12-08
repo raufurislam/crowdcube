@@ -1,6 +1,8 @@
 import { useLoaderData } from "react-router-dom";
 import Banner from "../components/Banner";
 import RunningCampaigns from "../components/RunningCampaigns";
+import DonationCount from "../components/DonationCount";
+import Faq from "../components/Faq";
 
 const HomePage = () => {
   const campaigns = useLoaderData();
@@ -18,6 +20,8 @@ const HomePage = () => {
       {/* Running Campaigns */}
       <RunningCampaigns campaigns={runningCampaigns.slice(0, 6)} />{" "}
       {/* Limit to 6 */}
+      <DonationCount></DonationCount>
+      <Faq></Faq>
     </div>
   );
 };

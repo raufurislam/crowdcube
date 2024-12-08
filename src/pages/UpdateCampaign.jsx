@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProviders";
 import Swal from "sweetalert2";
+import Loading from "./Loading";
 
 const UpdateCampaign = () => {
   const { id } = useParams(); // Get the campaign ID from the route
@@ -47,7 +48,7 @@ const UpdateCampaign = () => {
   };
 
   if (!campaign) {
-    return <p>Loading...</p>;
+    return <Loading />;
   }
 
   return (

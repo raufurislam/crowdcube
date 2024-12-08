@@ -1,0 +1,55 @@
+import { useEffect, useState } from "react";
+import img from "../assets/sad_tiny_man_sitting_on_huge_lightbulb_flat_vector_illustration-05.png";
+
+const DonationCount = () => {
+  const [totalAmount, setTotalAmount] = useState(0);
+
+  useEffect(() => {
+    // Fetch all donations
+    fetch(`https://assignment-10-raufur-server.vercel.app/totalDonations`)
+      .then((res) => res.json())
+      .then((data) => {
+        // Calculate the total donation amount
+        const total = data.reduce((sum, donation) => {
+          const amount = parseFloat(donation.amount) || 0; // Ensure the amount is a number
+          return sum + amount;
+        }, 0);
+        setTotalAmount(total); // Update the total amount state
+      })
+      .catch((error) =>
+        console.error("Error fetching total donations:", error)
+      );
+  }, []);
+
+  return (
+    <div className="max-w-screen-xl mx-auto">
+      <h1 className="lg:text-3xl md:text-2xl text-xl font-medium text-center">
+        Spread love to those <br />
+        <span className="lg:text-4xl md:text-3xl text-2xl font-bold">
+          who need it
+        </span>
+      </h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 items-center mt-10">
+        {/* Image Section */}
+        <div className="md:ml-20 lg:ml-40">
+          <img
+            src={img}
+            alt="Spread love"
+            className="w-full max-w-md mx-auto"
+          />
+        </div>
+        {/* Text Section */}
+        <div className="md:mr-20 lg:mr-40">
+          <div className="text-center ">
+            <h2 className="lg:text-3xl text-2xl  font-bold">We Collected</h2>
+            <h1 className="text-7xl font-extrabold text-primary mt-4">
+              ${totalAmount.toFixed(2)}
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default DonationCount;
