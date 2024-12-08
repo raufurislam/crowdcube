@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 const AllCampaign = () => {
   const [campaigns, setCampaigns] = useState([]);
+  const [isAscending, setIsAscending] = useState(true);
 
   useEffect(() => {
     fetch("https://assignment-10-raufur-server.vercel.app/campaigns")
@@ -10,9 +11,30 @@ const AllCampaign = () => {
       .then((data) => setCampaigns(data));
   }, []);
 
+  // Toggle sort order
+  const handleSort = () => {
+    const newSortOrder = !isAscending;
+    setIsAscending(newSortOrder);
+
+    // Sort campaigns array based on the new sort order
+    const sortedCampaigns = [...campaigns].sort((a, b) => {
+      return newSortOrder
+        ? a.minimumDonation - b.minimumDonation
+        : b.minimumDonation - a.minimumDonation;
+    });
+
+    setCampaigns(sortedCampaigns);
+  };
+
   return (
     <div className="max-w-6xl mx-auto py-10 px-4">
       <h1 className="text-3xl text-center font-bold mb-8">All Campaigns</h1>
+      <div className="flex text-center justify-center items-center">
+        {/* <h1 className="text-lg font-semibold">Sort by:</h1> */}
+        <button onClick={handleSort} className="btn btn-accent ml-3">
+          Minimum donation amount {isAscending ? "↑" : "↓"}
+        </button>
+      </div>
 
       {/* Desktop Table */}
       <div className="hidden md:block">
@@ -24,7 +46,7 @@ const AllCampaign = () => {
               <th>Type</th>
               <th>Deadline</th>
               <th>Minimum Donation</th>
-              <th>Actions</th>
+              <th className="text-right">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -35,7 +57,7 @@ const AllCampaign = () => {
                 <td>{campaign.type}</td>
                 <td>{new Date(campaign.deadline).toLocaleDateString()}</td>
                 <td>${campaign.minimumDonation}</td>
-                <td>
+                <td className="text-right flex justify-end gap-2">
                   <Link
                     to={`/campaign/${campaign._id}`}
                     className="btn btn-sm btn-primary"

@@ -43,6 +43,11 @@ const RunningCampaigns = ({ campaigns }) => {
           </div>
         ))}
       </div>
+      <div className="text-right mt-10 ">
+        <Link to="/campaigns" className="btn btn-primary w-full">
+          See all Campaign
+        </Link>
+      </div>
     </div>
   );
 };

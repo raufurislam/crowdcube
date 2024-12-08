@@ -17,6 +17,18 @@ const DetailsPage = () => {
       return;
     }
 
+    const currentDate = new Date();
+    const deadlineDate = new Date(campaign.deadline);
+
+    if (currentDate > deadlineDate) {
+      Swal.fire({
+        icon: "error",
+        title: "Campaign Ended",
+        text: "This campaign has ended and donations can no longer be made.",
+      });
+      return;
+    }
+
     const donationData = {
       campaignId: campaign._id,
       campaignName: campaign.title,

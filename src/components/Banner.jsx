@@ -3,9 +3,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import "animate.css";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Link } from "react-router-dom";
+import { Typewriter } from "react-simple-typewriter";
 
 const Banner = () => {
   const [slides] = useState([
@@ -15,7 +15,7 @@ const Banner = () => {
       description:
         "Join us in transforming lives by contributing to meaningful campaigns. Every small step leads to a big change.",
       image:
-        "https://i.ibb.co.com/WK59yTp/sad-tiny-man-sitting-on-huge-lightbulb-flat-vector-illustration-Converted-01.png",
+        "https://i.ibb.co/WK59yTp/sad-tiny-man-sitting-on-huge-lightbulb-flat-vector-illustration-Converted-01.png",
     },
     {
       id: 2,
@@ -23,7 +23,7 @@ const Banner = () => {
       description:
         "Help grassroots projects thrive and create a lasting impact. Together, we can make a difference.",
       image:
-        "https://i.ibb.co.com/qg1wZjn/sad-tiny-man-sitting-on-huge-lightbulb-flat-vector-illustration-Converted-02.png",
+        "https://i.ibb.co/qg1wZjn/sad-tiny-man-sitting-on-huge-lightbulb-flat-vector-illustration-Converted-02.png",
     },
     {
       id: 3,
@@ -31,7 +31,7 @@ const Banner = () => {
       description:
         "Each donation brings us closer to achieving the goals of countless individuals and organizations.",
       image:
-        "https://i.ibb.co.com/WzwsYyC/sad-tiny-man-sitting-on-huge-lightbulb-flat-vector-illustration-Converted-03.png",
+        "https://i.ibb.co/WzwsYyC/sad-tiny-man-sitting-on-huge-lightbulb-flat-vector-illustration-Converted-03.png",
     },
     {
       id: 4,
@@ -39,14 +39,10 @@ const Banner = () => {
       description:
         "Be a part of something greater. Explore campaigns that align with your values and aspirations.",
       image:
-        "https://i.ibb.co.com/WK0mBVW/sad-tiny-man-sitting-on-huge-lightbulb-flat-vector-illustration-Converted-04.png",
+        "https://i.ibb.co/WK0mBVW/sad-tiny-man-sitting-on-huge-lightbulb-flat-vector-illustration-Converted-04.png",
     },
   ]);
 
-  // https://i.ibb.co.com/WK59yTp/sad-tiny-man-sitting-on-huge-lightbulb-flat-vector-illustration-Converted-01.png
-  // https://i.ibb.co.com/qg1wZjn/sad-tiny-man-sitting-on-huge-lightbulb-flat-vector-illustration-Converted-02.png
-  // https://i.ibb.co.com/WzwsYyC/sad-tiny-man-sitting-on-huge-lightbulb-flat-vector-illustration-Converted-03.png
-  // https://i.ibb.co.com/WK0mBVW/sad-tiny-man-sitting-on-huge-lightbulb-flat-vector-illustration-Converted-04.png
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
@@ -65,27 +61,28 @@ const Banner = () => {
           }}
           modules={[Autoplay, Pagination, Navigation]}
           className="mySwiper"
-          onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)} // Use realIndex
+          onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         >
           {slides.map((slide, index) => (
             <SwiperSlide key={slide.id}>
               <div className="flex flex-col-reverse md:flex-row gap-8 p-8 items-center">
                 {/* Text Content */}
-                <div
-                  className={`flex-1 ${
-                    activeIndex === index
-                      ? "animate__animated animate__fadeIn"
-                      : "opacity-0"
-                  }`}
-                >
+                <div className="flex-1">
                   <h1 className="lg:text-4xl md:text-3xl text-2xl mb-3 font-semibold">
-                    {slide.title}
+                    {activeIndex === index && (
+                      <Typewriter
+                        words={[slide.title]}
+                        loop={false}
+                        cursor
+                        cursorStyle="|"
+                        typeSpeed={10}
+                        deleteSpeed={10}
+                        delaySpeed={3000}
+                      />
+                    )}
                   </h1>
                   <p className="lg:w-2/3 text-sm">{slide.description}</p>
-                  <Link
-                    // to="/campaign"
-                    className="btn btn-accent mt-8 w-full md:w-auto"
-                  >
+                  <Link className="btn btn-accent mt-8 w-full md:w-auto">
                     Donate Now
                   </Link>
                 </div>

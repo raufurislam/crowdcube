@@ -124,20 +124,25 @@ const Navbar = () => {
 
       {/* Navbar End */}
       <div className="navbar-end">
-        <div className="bg-base-200 rounded-full w-8 h-8 md:w-11 md:h-11 flex items-center justify-center mr-2 md:mr-3 lg:mr-3">
-          {user && user.photoURL ? (
-            <img
-              src={user.photoURL}
-              alt="Profile"
-              className="w-8 h-8 md:w-11 md:h-11 object-cover rounded-full"
-            />
-          ) : (
-            <img
-              src="https://img.icons8.com/?size=80&id=ARWy_JjgohtA&format=png"
-              alt=""
-              className="w-5"
-            />
-          )}
+        <div
+          className="tooltip tooltip-bottom"
+          data-tip={user?.displayName || ""}
+        >
+          <div className="bg-base-200 rounded-full w-8 h-8 md:w-11 md:h-11 flex items-center justify-center mr-2 md:mr-3 lg:mr-3">
+            {user && user.photoURL ? (
+              <img
+                src={user.photoURL}
+                alt="Profile"
+                className="w-8 h-8 md:w-11 md:h-11 object-cover rounded-full"
+              />
+            ) : (
+              <img
+                src="https://img.icons8.com/?size=80&id=ARWy_JjgohtA&format=png"
+                alt=""
+                className="w-5"
+              />
+            )}
+          </div>
         </div>
 
         {/* dark and light theme */}

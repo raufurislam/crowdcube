@@ -24,7 +24,7 @@ const MyCampaign = () => {
   }, [user]);
 
   if (loading) {
-    return <Loading></Loading>;
+    return <Loading />;
   }
 
   if (campaigns.length === 0) {
@@ -41,7 +41,6 @@ const MyCampaign = () => {
   }
 
   const handleUpdate = (id) => {
-    // Redirect to an update page or show a modal for editing
     window.location.href = `/updateCampaign/${id}`;
   };
 
@@ -79,41 +78,87 @@ const MyCampaign = () => {
   };
 
   return (
-    <div className="p-5">
-      <h1 className="text-3xl font-bold mb-4">My Campaigns</h1>
-      <table className="table-auto w-full border-collapse border border-gray-200">
-        <thead>
-          <tr className="bg-gray-100">
-            <th className="border px-4 py-2">Title</th>
-            <th className="border px-4 py-2">Type</th>
-            <th className="border px-4 py-2">Minimum Donation</th>
-            <th className="border px-4 py-2">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {campaigns.map((campaign) => (
-            <tr key={campaign._id} className="hover:bg-gray-50">
-              <td className="border px-4 py-2">{campaign.title}</td>
-              <td className="border px-4 py-2">{campaign.type}</td>
-              <td className="border px-4 py-2">{campaign.minimumDonation}</td>
-              <td className="border px-4 py-2 text-center">
-                <button
-                  className="bg-blue-500 text-white px-3 py-1 rounded mr-2"
-                  onClick={() => handleUpdate(campaign._id)}
-                >
-                  Update
-                </button>
-                <button
-                  className="bg-red-500 text-white px-3 py-1 rounded"
-                  onClick={() => handleDelete(campaign._id)}
-                >
-                  Delete
-                </button>
-              </td>
+    <div className="max-w-screen-xl mx-auto py-6 lg:px-2 px-4">
+      <h1 className="text-3xl text-center font-bold mb-6">My Campaigns</h1>
+
+      {/* Desktop Table */}
+      <div className="hidden md:block">
+        <table className="table w-full">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Title</th>
+              <th>Type</th>
+              <th>Deadline</th>
+              <th>Minimum Donation</th>
+              <th className="text-right">Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {campaigns.map((campaign, index) => (
+              <tr key={campaign._id}>
+                <td>{index + 1}</td>
+                <td className="font-medium">{campaign.title}</td>
+                <td>{campaign.type}</td>
+                <td>{new Date(campaign.deadline).toLocaleDateString()}</td>
+                <td>${campaign.minimumDonation}</td>
+                <td className="text-right flex justify-end gap-2">
+                  <button
+                    className="btn btn-sm btn-primary"
+                    onClick={() => handleUpdate(campaign._id)}
+                  >
+                    Update
+                  </button>
+                  <button
+                    className="btn btn-sm btn-error"
+                    onClick={() => handleDelete(campaign._id)}
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Mobile Cards */}
+      <div className="block md:hidden space-y-4">
+        {campaigns.map((campaign, index) => (
+          <div
+            key={campaign._id}
+            className="bg-white shadow-md rounded-lg p-4 border"
+          >
+            <div className="mb-2">
+              <span className="font-bold">#</span> {index + 1}
+            </div>
+            <div className="mb-2">
+              <span className="font-bold">Title:</span> {campaign.title}
+            </div>
+            <div className="mb-2">
+              <span className="font-bold">Type:</span> {campaign.type}
+            </div>
+            <div className="mb-2">
+              <span className="font-bold">Minimum Donation:</span> $
+              {campaign.minimumDonation}
+            </div>
+            <div className="flex flex-col md:flex-row gap-2 mt-4">
+              <button
+                className="btn btn-sm btn-primary w-full"
+                onClick={() => handleUpdate(campaign._id)}
+              >
+                Update
+              </button>
+              <button
+                className="btn btn-sm btn-error w-full"
+                onClick={() => handleDelete(campaign._id)}
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
