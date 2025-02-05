@@ -4,7 +4,7 @@ import Loading from "./Loading";
 import { Link } from "react-router-dom";
 
 const MyDonations = () => {
-  const { user } = useContext(AuthContext); // Get logged-in user info
+  const { user } = useContext(AuthContext);
   const [donations, setDonations] = useState([]);
   const [loading, setLoading] = useState(true);
 

@@ -5,12 +5,11 @@ import Swal from "sweetalert2";
 import Loading from "./Loading";
 
 const UpdateCampaign = () => {
-  const { id } = useParams(); // Get the campaign ID from the route
-  const { user } = useContext(AuthContext); // Get the logged-in user's info
+  const { id } = useParams();
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const [campaign, setCampaign] = useState(null);
 
-  // Fetch the campaign details
   useEffect(() => {
     fetch(`https://assignment-10-raufur-server.vercel.app/campaigns/${id}`)
       .then((res) => res.json())
@@ -18,7 +17,6 @@ const UpdateCampaign = () => {
       .catch((error) => console.error(error));
   }, [id]);
 
-  // Handle form submission
   const handleUpdate = (e) => {
     e.preventDefault();
     const form = e.target;

@@ -64,7 +64,7 @@ const DetailsPage = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto py-10">
+    <div className="max-w-3xl mx-auto py-10 lg:px-2 px-4">
       <h1 className="text-4xl font-bold">{campaign.title}</h1>
       <img
         src={campaign.image}

@@ -14,7 +14,6 @@ const Faq = () => {
       return;
     }
 
-    // Clear the input and show a success alert
     setThought("");
     Swal.fire({
       icon: "success",

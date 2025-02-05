@@ -46,7 +46,7 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(
             `https://assignment-10-raufur-server.vercel.app/campaigns/${params.id}`
-          ), // Fetch specific campaign by ID
+          ),
       },
       {
         path: "/myCampaign",

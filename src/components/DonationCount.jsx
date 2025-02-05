@@ -5,16 +5,14 @@ const DonationCount = () => {
   const [totalAmount, setTotalAmount] = useState(0);
 
   useEffect(() => {
-    // Fetch all donations
     fetch(`https://assignment-10-raufur-server.vercel.app/totalDonations`)
       .then((res) => res.json())
       .then((data) => {
-        // Calculate the total donation amount
         const total = data.reduce((sum, donation) => {
-          const amount = parseFloat(donation.amount) || 0; // Ensure the amount is a number
+          const amount = parseFloat(donation.amount) || 0;
           return sum + amount;
         }, 0);
-        setTotalAmount(total); // Update the total amount state
+        setTotalAmount(total);
       })
       .catch((error) =>
         console.error("Error fetching total donations:", error)

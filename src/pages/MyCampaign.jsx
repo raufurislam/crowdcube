@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Loading from "./Loading";
 
 const MyCampaign = () => {
-  const { user } = useContext(AuthContext); // Get the logged-in user's info
+  const { user } = useContext(AuthContext);
   const [campaigns, setCampaigns] = useState([]);
   const [loading, setLoading] = useState(true);
 
